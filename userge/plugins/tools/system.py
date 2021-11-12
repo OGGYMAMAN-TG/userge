@@ -59,7 +59,7 @@ async def _init() -> None:
     allow_channels=False,
 )
 async def restart_(message: Message):
-    """ restart USERGE-X """
+    """restart USERGE-X"""
     await message.edit("`Restarting USERGE-X Services`", log=__name__)
     LOG.info("USERGE-X Services - Restart initiated")
     if "t" in message.flags:
@@ -90,7 +90,7 @@ async def restart_(message: Message):
     "shutdown", about={"header": "shutdown USERGE-X :)"}, allow_channels=False
 )
 async def shutdown_(message: Message) -> None:
-    """ shutdown USERGE-X """
+    """shutdown USERGE-X"""
     await message.edit("`shutting down ...`")
     if Config.HEROKU_APP:
         try:
@@ -115,7 +115,7 @@ async def shutdown_(message: Message) -> None:
     allow_channels=False,
 )
 async def die_(message: Message) -> None:
-    """ set offline timeout to die USERGE-X """
+    """set offline timeout to die USERGE-X"""
     global MAX_IDLE_TIME  # pylint: disable=global-statement
     if not Config.HEROKU_APP:
         await message.err("`heroku app not detected !`")
@@ -159,7 +159,7 @@ async def die_(message: Message) -> None:
     },
 )
 async def setvar_(message: Message) -> None:
-    """ set var (heroku) """
+    """set var (heroku)"""
     if not Config.HEROKU_APP:
         await message.err("`heroku app not detected !`")
         return
@@ -195,7 +195,7 @@ async def setvar_(message: Message) -> None:
     },
 )
 async def delvar_(message: Message) -> None:
-    """ del var (heroku) """
+    """del var (heroku)"""
     if not Config.HEROKU_APP:
         await message.err("`heroku app not detected !`")
         return
@@ -223,7 +223,7 @@ async def delvar_(message: Message) -> None:
     },
 )
 async def getvar_(message: Message) -> None:
-    """ get var (heroku) """
+    """get var (heroku)"""
     if not Config.HEROKU_APP:
         await message.err("`heroku app not detected !`")
         return
@@ -347,7 +347,7 @@ async def view_disabled_chats_(message: Message):
     allow_channels=False,
 )
 async def sleep_(message: Message) -> None:
-    """ sleep USERGE-X """
+    """sleep USERGE-X"""
     seconds = int(message.matches[0].group(1))
     await message.edit(f"`sleeping {seconds} seconds...`")
     asyncio.get_event_loop().create_task(_slp_wrkr(seconds))

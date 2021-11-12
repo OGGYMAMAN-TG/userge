@@ -41,7 +41,7 @@ allowForwardFilter = filters.create(lambda _, __, ___: Config.BOT_FORWARDS)
     "bot_fwd", about={"header": "enable / disable Bot Forwards"}, allow_channels=False
 )
 async def bot_fwd_(message: Message):
-    """ enable / disable Bot Forwards """
+    """enable / disable Bot Forwards"""
     if Config.BOT_FORWARDS:
         Config.BOT_FORWARDS = False
         await message.edit("`Bot Forwards disabled !`", del_in=3, log=__name__)
@@ -142,7 +142,7 @@ if userge.has_bot:
         & filters.regex(pattern=r"^/ban\s+(.*)")
     )
     async def bot_ban_(_, message: Message):
-        """ ban a user from bot """
+        """ban a user from bot"""
         start_ban = await userge.bot.send_message(message.chat.id, "`Banning...`")
         user_id, reason = extract_content(message)  # Ban by giving ID & Reason
         if not user_id:
@@ -343,7 +343,7 @@ def extract_content(msg: Message):  # Modified a bound method
     allow_channels=False,
 )
 async def list_bot_banned(message: Message):
-    """ view Bot Banned users """
+    """view Bot Banned users"""
     msg = ""
     async for c in BOT_BAN.find():
         msg += (
@@ -372,7 +372,7 @@ async def list_bot_banned(message: Message):
     allow_bots=True,
 )
 async def ungban_user(message: Message):
-    """ unban a user from Bot's PM"""
+    """unban a user from Bot's PM"""
     await message.edit("`UN-BOT Banning ...`")
     user_id = message.input_str
     if not user_id:
